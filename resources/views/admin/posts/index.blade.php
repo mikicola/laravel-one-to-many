@@ -44,7 +44,7 @@
             <div class="popup">
                 <h1>Sei sicuro di voler eliminare?</h1>
                 <div class="d-flex justify-content-center">
-                    <button id="btn-no" class="btn btn-primary me-3">NO</button>
+                    <button id="btn-no" class="btn btn-primary me-3">Annulla</button>
                     <form method="POST" data-base="{{ route('admin.posts.destroy', '*****') }}">
                         @csrf
                         @method('DELETE')
