@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Post;
+use App\User;
 use Faker\Generator as Faker;
 
 // per ordinare l'url
@@ -18,18 +19,21 @@ class PostSeeder extends Seeder
     {
         $title = 'prova con titoli uguali';
         Post::create([
+            'user_id'   => 1,
             'title'     => $title,
-            'content'   => $faker->text(rand(100, 500)),
+            'content'   => $faker->text(rand(100, 800)),
             'slug'      => Post::generateSlug($title)
         ]);
         Post::create([
+            'user_id'   => 2,
             'title'     => $title,
-            'content'   => $faker->text(rand(100, 500)),
+            'content'   => $faker->text(rand(100, 800)),
             'slug'      => Post::generateSlug($title)
         ]);
         Post::create([
+            'user_id'   => 3,
             'title'     => $title,
-            'content'   => $faker->text(rand(100, 500)),
+            'content'   => $faker->text(rand(100, 800)),
             'slug'      => Post::generateSlug($title)
         ]);
 
@@ -40,8 +44,11 @@ class PostSeeder extends Seeder
             // $slug = $post->generateSlug($title);
 
             Post::create([
+                // utenti random per i post
+                'user_id'   => User::inRandomOrder()->first()->id,
+
                 'title'     => $title,
-                'content'   => $faker->text(rand(100, 500)),
+                'content'   => $faker->text(rand(100, 800)),
                 'slug'      => Post::generateSlug($title)
             ]);
         }

@@ -14,17 +14,17 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->nullable();
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('title', 100);
             $table->text('content');
             $table->string('slug', 100)->unique();
             $table->timestamps();
 
+            // lego la tabella
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
-            ->onDelete('SET NULL')
             ;
         });
     }

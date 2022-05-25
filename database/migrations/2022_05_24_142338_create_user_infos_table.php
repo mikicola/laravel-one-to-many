@@ -15,7 +15,16 @@ class CreateUserInfosTable extends Migration
     {
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->string('phone');
+            $table->string('address');
+            $table->date('date_of_birth');
             $table->timestamps();
+
+            // lego la tabella
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users');
         });
     }
 
