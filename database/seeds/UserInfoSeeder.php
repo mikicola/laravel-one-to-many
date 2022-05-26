@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\User;
+use App\UserInfo;
 
 class UserInfoSeeder extends Seeder
 {
@@ -14,13 +15,14 @@ class UserInfoSeeder extends Seeder
     public function run(Faker $faker)
     {
         $users = User::all();
+
         foreach ($users as $user){
             userInfo::create(
                 [
-                    'user_id'       => User::inRandomOrder()->first()->id,
-                    'phone'         => $faker->phoneNumber(),
-                    'address'       => $faker->address(),
-                    'date_of_birth' => $faker->date(),
+                    'user_id'           => $user->id,
+                    'phone'             => $faker->phoneNumber(),
+                    'address'           => $faker->address(),
+                    'date_of_birth'     => $faker->date()
                 ]
             );
         }

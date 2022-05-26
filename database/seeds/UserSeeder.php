@@ -16,6 +16,11 @@ class UserSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++){
             // serve solo name, mail e password, il resto lo gestisce laravel
+            // User::create([
+            //     'name'      => 'io',
+            //     'email'     => 'io@io.io',
+            //     'password'  => Hash::make('password'),
+            // ]);
             User::create([
                 'name'      => $faker->name(),
                 'email'     => $faker->email(),
