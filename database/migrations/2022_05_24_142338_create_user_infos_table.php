@@ -23,9 +23,14 @@ class CreateUserInfosTable extends Migration
 
             // lego la tabella
             $table->foreign('user_id')
-            ->references('id')
-            ->on('users');
+               ->references('id')
+               ->on('users')
+               // ->onDelete('SET NULL')
+            ;
         });
+
+        // schema::create('user_infos', function (Blueprint $table){
+        // });
     }
 
     /**
