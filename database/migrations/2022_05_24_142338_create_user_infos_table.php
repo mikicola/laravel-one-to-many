@@ -28,9 +28,6 @@ class CreateUserInfosTable extends Migration
                // ->onDelete('SET NULL')
             ;
         });
-
-        // schema::create('user_infos', function (Blueprint $table){
-        // });
     }
 
     /**

@@ -14,13 +14,14 @@ class UserSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        User::create([
+            'name'      => 'io',
+            'email'     => 'io@io.io',
+            'password'  => Hash::make('12345678'),
+        ]);
+
         for ($i = 0; $i < 10; $i++){
             // serve solo name, mail e password, il resto lo gestisce laravel
-            // User::create([
-            //     'name'      => 'io',
-            //     'email'     => 'io@io.io',
-            //     'password'  => Hash::make('password'),
-            // ]);
             User::create([
                 'name'      => $faker->name(),
                 'email'     => $faker->email(),
