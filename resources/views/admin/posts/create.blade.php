@@ -22,6 +22,17 @@
             @error('slug')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+
+            <select class="form-select mt-3" aria-label="Default select example" name="category_id" id="category">
+                <option value="" selected>Select your category</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            @error('category_id')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
             <div class="mb-3">
                 <label for="content" class="form-label">{{ __('Content') }}</label>
                 <textarea class="form-control" id="content" rows="10" name="content" placeholder="Post Description">{{ old('content') }}</textarea>

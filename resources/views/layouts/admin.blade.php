@@ -10,6 +10,9 @@
     {{-- defer per mettere script nell'head  --}}
 </head>
 <body>
+    {{-- chiamo componente navbar e imposto il colore --}}
+    <x-navbar color="dark" />
+
     @yield('content')
 </body>
 </html>

@@ -12,7 +12,7 @@ class Post extends Model
     public function getRouteKeyName(){
         return 'slug';
     }
-    protected $fillable = ['title', 'content', 'slug'];
+    protected $fillable = ['title', 'content', 'slug', 'user_id', 'category_id'];
 
     static public function generateSlug($originalStr){
         // per ordinare l'url
